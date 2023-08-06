@@ -1,4 +1,5 @@
 const User = require("../db/model/UserSchema");
+const createToken = require("../middleware/jwt");
 
 const signup = async (req, res) => {
   try {
@@ -19,8 +20,12 @@ const login = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const user = await User.comparePassword(email, password);
-    email, password;
-    res.send(user);
+    const token = createToken({ email: email, _id: user._id });
+
+    res.status(200).json({
+      message: "Succses",
+      token: token,
+    });
   } catch (e) {
     res.status(401).send(e.message);
   }
