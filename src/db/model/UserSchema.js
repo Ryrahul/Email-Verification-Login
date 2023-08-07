@@ -24,6 +24,7 @@ UserSchema.statics.comparePassword = async function (email, password) {
   if (!person) {
     throw Error("No such User");
   }
+
   const Match = await bcrypt.compare(password, person.password);
   if (Match) {
     return person;

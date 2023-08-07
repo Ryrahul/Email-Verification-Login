@@ -27,9 +27,10 @@ const login = async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
+    console.log(password);
     const user = await User.comparePassword(email, password);
     if (!user.verified) {
-      res.status(201).json({ message: "Email Not verified" });
+     return res.status(201).json({ message: "Email Not verified" });
     }
     const token = createToken({ email: email, _id: user._id });
 
@@ -39,20 +40,20 @@ const login = async (req, res) => {
     });
   } catch (e) {
     res.status(401).send(e.message);
+    console.log(e);
   }
 };
 const verification = async (req, res) => {
   try {
     let { Userid, UniqueString } = req.params;
     const verUser = await VerifedUser.findOne({ Userid });
-    console.log(verUser.UniqueString)
- 
+    console.log(verUser.UniqueString);
 
     if (verUser) {
       const result = await bcrypt.compare(UniqueString, verUser.UniqueString);
       if (result) {
         await User.updateOne({ _id: Userid }, { verified: true });
-       return res.status(200).json({
+        return res.status(200).json({
           status: "Verified",
           message: "You can log in now using your email and password",
         });
