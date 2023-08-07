@@ -8,7 +8,7 @@
     "dev": "nodemon src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rahul Yadav",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
