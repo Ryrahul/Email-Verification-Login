@@ -14,14 +14,13 @@ Welcome to the API-based Email Verification Login System! This project is design
 
 ## Introduction :wave:
 
-Traditional username/password login systems can be susceptible to security breaches and forgotten passwords. 
+Traditional username/password login systems can be susceptible to security breaches. 
 The API-based Email Verification Login System aims to provide a more secure and convenient alternative. By sending verification links to users' email addresses, we can ensure a secure login process and reduce the chances of unauthorized access.
 
 ## Features :rocket:
 
 - **Email Verification:** Users receive a verification link to their email for secure login.
 - **User-Friendly Interface:** A simple and intuitive interface for smooth user experience.
-- **Password Reset:** Users can reset their passwords through the registered email.
 - **Email Templates:** Customizable email templates for verification and password reset.
 
 
